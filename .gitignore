@@ -17,3 +17,6 @@
 
 # Ignore RubyMine files
 .idea/
+
+# Ignore public assets
+/public/assets
