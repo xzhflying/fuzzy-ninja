@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: fuzzy-ninja_production
-  username: fuzzy-ninja
+  username: ninja
   password: <%= ENV['FUZZY-NINJA_DATABASE_PASSWORD'] %>
