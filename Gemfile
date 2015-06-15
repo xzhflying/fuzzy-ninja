@@ -31,10 +31,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Manage static pages
 gem 'high_voltage', '~> 2.3.0'
-# Slim
-gem 'slim'
+# Slim as the templating language
+gem 'slim-rails'
 # Devise to manage user
 gem 'devise'
+
+# Use jQuery as the JavaScript library
+gem 'jquery-cdn'
 # Bootstrap 3 as theme
 gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'

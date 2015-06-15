@@ -80,6 +80,8 @@ GEM
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
+    jquery-cdn (2.1.4)
+      sprockets (>= 2)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -142,6 +144,12 @@ GEM
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
+    slim-rails (3.0.1)
+      actionmailer (>= 3.1, < 5.0)
+      actionpack (>= 3.1, < 5.0)
+      activesupport (>= 3.1, < 5.0)
+      railties (>= 3.1, < 5.0)
+      slim (~> 3.0)
     slop (3.6.0)
     spring (1.3.6)
     sprockets (2.12.3)
@@ -184,12 +192,13 @@ DEPENDENCIES
   devise
   high_voltage (~> 2.3.0)
   jbuilder (~> 2.0)
+  jquery-cdn
   jquery-rails
   pg
   rails (= 4.2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  slim
+  slim-rails
   spring (>= 1.3.6)
   turbolinks
   uglifier (>= 1.3.0)
