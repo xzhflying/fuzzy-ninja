@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title
+      = 'FuzzyNinja'
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    = viewport_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  body
+    nav.navbar.navbar-inverse.navbar-fixed-top.color role="navigation" style="{color: }"
+      div.container-fluid
+        div.navbar-header
+          a.navbar-brand href=root_path style="color:#FFFF66;font-size:30px;font-family:scripts"
+            = 'Fuzzy Ninja'
+        div.collapse.navbar-collapse#site-navigation-navbar
+          ul.nav.navbar-nav.pull-right
+            li.nav-font
+              = link_to('帮助', '#', style: "color:#FFFF66;font-size:20px")
+            - if user_signed_in?
+              li
+                = link_to('退出登录', destroy_user_session_path, method: :delete, style: "color:#FFFF66;font-size:20px")
+            - else
+              li
+                = link_to('注册', new_user_registration_path, style: "color:#FFFF66;font-size:20px")
+              li
+                = link_to('登录', new_user_session_path, style: "color:#FFFF66;font-size:20px")
+
+    div.container-fluid
+      div.page
+        = yield
