@@ -33,6 +33,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'high_voltage', '~> 2.3.0'
 # Slim
 gem 'slim'
+# Bootstrap 3 as theme
+gem 'bootstrap-sass'
+gem 'bootstrap-sass-extras'
+gem 'autoprefixer-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
