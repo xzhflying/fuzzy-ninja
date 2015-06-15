@@ -33,6 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'high_voltage', '~> 2.3.0'
 # Slim
 gem 'slim'
+# Devise to manage user
+gem 'devise'
 # Bootstrap 3 as theme
 gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
@@ -49,6 +51,6 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '>= 1.3.6'
 end
 
