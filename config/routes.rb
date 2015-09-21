@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'static_pages/missionsystem_main'
+  match '/missionsystem/main', to: 'static_pages#missionsystem_main', via: 'get'
 
-  get 'static_pages/missionsystem_help'
+  match '/missionsystem/help', to: 'static_pages#missionsystem_help', via: 'get'
 
-  get 'static_pages/missionsystem_about'
+  match '/missionsystem/about', to: 'static_pages#missionsystem_about', via: 'get'
 
   resources :tasks
 

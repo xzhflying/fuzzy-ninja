@@ -1,5 +1,5 @@
 class StaticPagesController < ActionController::Base
-  
+
   layout "missionsystem"
 
   def missionsystem_main
@@ -10,4 +10,5 @@ class StaticPagesController < ActionController::Base
 
   def missionsystem_about
   end
+
 end
