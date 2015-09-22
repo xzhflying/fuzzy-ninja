@@ -8,17 +8,9 @@ html
                                               "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
+    = render 'layouts/shim'
   body
-    header class="navbar navbar-fixed-top navbar-inverse"
-      div class="navbar-inner"
-        div clas="container"
-          = link_to "sample app", "#", id: "logo"
-          nav
-            ul class="nav pull-right"
-              li = link_to "Home",    missionsystem_main_path
-              li = link_to "Help",    missionsystem_help_path
-              li = link_to "About",   missionsystem_about_path
-
+    = render 'layouts/header'
     div class="container"
-      | asdfsadfsdf
-      =yield
+      = yield
+      = render 'layouts/footer'
