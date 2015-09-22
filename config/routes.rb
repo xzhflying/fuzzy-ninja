@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  match '/missionsystem/main', to: 'static_pages#missionsystem_main', via: 'get'
+
+  match '/missionsystem/help', to: 'static_pages#missionsystem_help', via: 'get'
+
+  match '/missionsystem/about', to: 'static_pages#missionsystem_about', via: 'get'
+
+  resources :tasks
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

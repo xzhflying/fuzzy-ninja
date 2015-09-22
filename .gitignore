@@ -20,3 +20,6 @@
 
 # Ignore public assets
 /public/assets
+
+# Ignore hidden files
+.*
