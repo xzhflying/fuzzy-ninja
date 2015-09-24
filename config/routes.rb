@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => 'pages#show', :id => 'index'
+  #root :to => 'pages#show', :id => 'index'
 
   #get "/pages/*id" => 'pages#show', as: :page, format: false
   # if routing the root path, update for your controller
