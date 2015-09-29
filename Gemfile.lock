@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/flyerhzm/bullet.git
+  revision: e60794cc802beb920cedb1981efa8a63cbe019fa
+  specs:
+    bullet (4.14.8)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.9.0)
+
 GEM
   remote: https://ruby.taobao.org/
   specs:
@@ -41,18 +49,18 @@ GEM
       execjs
       json
     bcrypt (3.1.10)
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
     bootstrap-sass-extras (0.0.6)
       rails (>= 3.1.0)
     builder (3.2.2)
-    byebug (3.5.1)
-      columnize (~> 0.8)
-      debugger-linecache (~> 1.2)
-      slop (~> 3.6)
+    capybara (2.5.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -60,9 +68,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.0)
-    columnize (0.9.0)
-    debug_inspector (0.0.2)
-    debugger-linecache (1.2.0)
+    consistency_fail (0.3.3)
     devise (3.5.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -70,13 +76,33 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    diff-lcs (1.2.5)
+    docile (1.1.5)
+    easy_translate (0.5.0)
+      json
+      thread
+      thread_safe
     erubis (2.7.0)
     execjs (2.3.0)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     high_voltage (2.3.0)
+    highline (1.7.7)
     hike (1.2.3)
     i18n (0.7.0)
+    i18n-tasks (0.8.7)
+      activesupport (>= 2.3.18)
+      easy_translate (>= 0.5.0)
+      erubis
+      highline (>= 1.7.3)
+      i18n
+      term-ansicolor (>= 1.3.2)
+      terminal-table (>= 1.5.1)
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -131,6 +157,30 @@ GEM
       json (~> 1.4)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rspec (3.3.0)
+      rspec-core (~> 3.3.0)
+      rspec-expectations (~> 3.3.0)
+      rspec-mocks (~> 3.3.0)
+    rspec-core (3.3.2)
+      rspec-support (~> 3.3.0)
+    rspec-expectations (3.3.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.3.0)
+    rspec-html-matchers (0.7.0)
+      nokogiri (~> 1)
+      rspec (~> 3)
+    rspec-mocks (3.3.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.3.0)
+    rspec-rails (3.3.3)
+      actionpack (>= 3.0, < 4.3)
+      activesupport (>= 3.0, < 4.3)
+      railties (>= 3.0, < 4.3)
+      rspec-core (~> 3.3.0)
+      rspec-expectations (~> 3.3.0)
+      rspec-mocks (~> 3.3.0)
+      rspec-support (~> 3.3.0)
+    rspec-support (3.3.0)
     sass (3.4.12)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -141,6 +191,14 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    should_not (1.1.0)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
+    simplecov (0.10.0)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
@@ -150,8 +208,6 @@ GEM
       activesupport (>= 3.1, < 5.0)
       railties (>= 3.1, < 5.0)
       slim (~> 3.0)
-    slop (3.6.0)
-    spring (1.3.6)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -162,9 +218,14 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     temple (0.7.6)
+    term-ansicolor (1.3.2)
+      tins (~> 1.0)
+    terminal-table (1.5.2)
     thor (0.19.1)
+    thread (0.2.2)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    tins (1.6.0)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -172,13 +233,12 @@ GEM
     uglifier (2.7.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uniform_notifier (1.9.0)
     warden (1.2.3)
       rack (>= 1.0)
-    web-console (2.0.0)
-      activemodel (~> 4.0)
-      binding_of_caller (>= 0.7.2)
-      railties (~> 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
+    yard (0.8.7.6)
 
 PLATFORMS
   ruby
@@ -187,22 +247,27 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
   bootstrap-sass-extras
-  byebug
+  bullet!
+  capybara
   coffee-rails (~> 4.1.0)
+  consistency_fail
   devise
+  factory_girl_rails
   high_voltage (~> 2.3.0)
+  i18n-tasks
   jbuilder (~> 2.0)
   jquery-cdn
   jquery-rails
   pg
   rails (= 4.2.0)
+  rspec-html-matchers
+  rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  should_not
+  shoulda-matchers
+  simplecov
   slim-rails
-  spring (>= 1.3.6)
   turbolinks
   uglifier (>= 1.3.0)
-  web-console (~> 2.0)
-
-BUNDLED WITH
-   1.10.5
+  yard

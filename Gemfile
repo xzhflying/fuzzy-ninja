@@ -47,12 +47,29 @@ gem 'autoprefixer-rails'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  # bundle exec yardoc generates the API under doc/.
+  # Use yard stats --list-undoc to find what needs documenting.
+  gem 'yard',                  group: :doc
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  # Use RSpec for Behaviour testing
+  gem 'rspec-rails'
+  gem 'rspec-html-matchers'
+  gem 'should_not'
+  gem 'simplecov'
+  gem 'shoulda-matchers'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '>= 1.3.6'
+  # Capybara for feature testing
+  gem 'capybara'
+
+  # Factory Girl for factories
+  gem 'factory_girl_rails'
+
+  # Checks that all translations are used and defined
+  gem 'i18n-tasks'
+
+  # Helps to prevent database consistency mistakes
+  gem 'consistency_fail'
+
+  # Prevent N+1 queries.
+  gem 'bullet', github: 'flyerhzm/bullet'
 end
