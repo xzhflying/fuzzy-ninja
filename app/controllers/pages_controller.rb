@@ -13,5 +13,4 @@ class PagesController < ApplicationController
       'missionsystem'
     end
   end
-
 end
