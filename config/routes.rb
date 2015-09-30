@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  #root :to => 'pages#show', :id => 'index'
-
-  #get "/pages/*id" => 'pages#show', as: :page, format: false
-  # if routing the root path, update for your controller
-  #root to: 'pages#show', id: 'index'
-
   get 'missionsystem/main' => 'pages#show', id: 'missionsystem_main'
   get 'missionsystem/help' => 'pages#show', id: 'missionsystem_help'
   get 'missionsystem/about' => 'pages#show', id: 'missionsystem_about'
@@ -12,7 +6,6 @@ Rails.application.routes.draw do
   resources :tasks
 
   devise_for :users
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay 5out with "rake routes".
