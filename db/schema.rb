@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20151004143400) do
     t.string   "status"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "user_id"
+    t.integer  "missions_id"
   end
 
-  add_index "missions", ["user_id"], name: "index_missions_on_user_id", using: :btree
+  add_index "missions", ["missions_id"], name: "index_missions_on_missions_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                              null: false
@@ -56,5 +56,4 @@ ActiveRecord::Schema.define(version: 20151004143400) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "missions", "users"
 end

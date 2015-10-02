@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'missionsystem/help' => 'pages#show', id: 'missionsystem_help'
   get 'missionsystem/about' => 'pages#show', id: 'missionsystem_about'
 
-  resources :tasks
+  resources :misisons
 
   devise_for :users
 
