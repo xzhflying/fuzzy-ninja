@@ -3,6 +3,6 @@ class Mission < ActiveRecord::Base
   validates :target, length: { maximum: 30 }
   validates :description, length: { maximum: 300 }
 
-  belongs_to :user
+  belongs_to :user, inverse_of: :missions
   has_many :comments, dependent: :destroy
 end
