@@ -16,15 +16,6 @@ ActiveRecord::Schema.define(version: 20151001141913) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "missions", force: :cascade do |t|
-    t.string   "target"
-    t.string   "description"
-    t.string   "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "missions_id", index: {name: "index_missions_on_missions_id"}, foreign_key: {references: "missions", name: "fk_missions_missions_id", on_update: :no_action, on_delete: :no_action}
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  null: false, index: {name: "index_users_on_email", unique: true}
     t.string   "encrypted_password",     null: false
@@ -40,10 +31,20 @@ ActiveRecord::Schema.define(version: 20151001141913) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "missions", force: :cascade do |t|
+    t.integer  "user_id",       null: false, index: {name: "fk__missions_user_id"}, foreign_key: {references: "users", name: "fk_missions_user_id", on_update: :no_action, on_delete: :no_action}
+    t.integer  "supervisor_id", index: {name: "fk__missions_supervisor_id"}, foreign_key: {references: "users", name: "fk_missions_supervisor_id", on_update: :no_action, on_delete: :no_action}
+    t.string   "target",        null: false
+    t.string   "description"
+    t.integer  "status",        default: 0, null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "comments", force: :cascade do |t|
-    t.integer  "user_id",    index: {name: "index_comments_on_user_id"}, foreign_key: {references: "users", name: "fk_comments_user_id", on_update: :no_action, on_delete: :no_action}
-    t.integer  "mission_id", index: {name: "index_comments_on_mission_id"}, foreign_key: {references: "missions", name: "fk_comments_mission_id", on_update: :no_action, on_delete: :no_action}
-    t.text     "content"
+    t.integer  "user_id",    null: false, index: {name: "fk__comments_user_id"}, foreign_key: {references: "users", name: "fk_comments_user_id", on_update: :no_action, on_delete: :no_action}
+    t.integer  "mission_id", null: false, index: {name: "fk__comments_mission_id"}, foreign_key: {references: "missions", name: "fk_comments_mission_id", on_update: :no_action, on_delete: :no_action}
+    t.text     "content",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
