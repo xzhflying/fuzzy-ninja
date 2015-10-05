@@ -4,6 +4,11 @@ source 'https://ruby.taobao.org/'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
+# Schema Plus for some higher level database abstractions
+gem 'schema_plus'
+gem 'schema_plus_association_inverses', '>= 0.0.3'
+gem 'schema_validations'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
