@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'missionsystem/main' => 'pages#show', id: 'missionsystem_main'
-  get 'missionsystem/help' => 'pages#show', id: 'missionsystem_help'
-  get 'missionsystem/about' => 'pages#show', id: 'missionsystem_about'
-
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
