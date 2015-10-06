@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 20151001141913) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.integer  "user_id",    null: false, index: {name: "fk__comments_user_id"}, foreign_key: {references: "users", name: "fk_comments_user_id", on_update: :no_action, on_delete: :no_action}
-    t.integer  "mission_id", null: false, index: {name: "fk__comments_mission_id"}, foreign_key: {references: "missions", name: "fk_comments_mission_id", on_update: :no_action, on_delete: :no_action}
+  create_table "mission_comments", force: :cascade do |t|
+    t.integer  "user_id",    null: false, index: {name: "fk__mission_comments_user_id"}, foreign_key: {references: "users", name: "fk_mission_comments_user_id", on_update: :no_action, on_delete: :no_action}
+    t.integer  "mission_id", null: false, index: {name: "fk__mission_comments_mission_id"}, foreign_key: {references: "missions", name: "fk_mission_comments_mission_id", on_update: :no_action, on_delete: :no_action}
     t.text     "content",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

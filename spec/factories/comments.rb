@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :comment do
+  factory :mission_comment, class: Mission::Comment.name do
     user
     mission
     content 'test'
