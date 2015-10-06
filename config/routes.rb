@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   get 'missionsystem/help' => 'pages#show', id: 'missionsystem_help'
   get 'missionsystem/about' => 'pages#show', id: 'missionsystem_about'
 
-  resources :misisons
-
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -61,4 +59,9 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  scope module: 'mission' do
+    resources :misisons
+    get 'mission/my_missions' => 'missions#my_missions', as: :my_missions
+  end
 end

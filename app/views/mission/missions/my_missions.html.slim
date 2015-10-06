@@ -1,0 +1,7 @@
+h1
+  = '我的任务：'
+- if @my_missions
+  - @my_missions.each do |mission|
+    = mission.inspect
+- else
+  h3 = '你还没有创建任务'
