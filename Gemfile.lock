@@ -7,7 +7,7 @@ GIT
       uniform_notifier (~> 1.9.0)
 
 GEM
-  remote: https://ruby.taobao.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (4.2.0)
       actionpack (= 4.2.0)
