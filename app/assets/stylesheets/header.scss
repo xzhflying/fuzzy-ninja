@@ -1,20 +1,16 @@
+.header{
+  border-bottom:solid 2px #5DC9C9;
+}
 .header-part{
   margin: 1.5em 0;
 }
 .head-logo{
-  float:left;
+  float: left;
+  margin-left: 100px;
 }
 .top-nav{
   float: right;
-}
-.top-nav1{
-  float: right;
-}
-.top-nav span{
-  display:none;
-}
-.top-nav1 span{
-  display:none;
+  margin-right: 50px;
 }
 .top-nav ul{
   padding:0;

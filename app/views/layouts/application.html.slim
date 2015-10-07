@@ -11,32 +11,29 @@ html
 
   body
     div.header
-      div.container
-        div.header-part
-          div.head-logo
-            a
-              = link_to(image_tag('logo.png', size: '400x50'), root_path)
-          div.top-nav
-            span.menu
-              =image_tag "menu.png"
-            ul.nav1
-              - if user_signed_in?
-                li
-                  a.scroll href="#home" 主页
-                li
-                  a.scroll href="#about" 关于
-                li
-                  a.scroll href="#todo"  To Do List
-                li
-                  a.scroll href="#blog" Blog
-                li
-                  = link_to('退出登录', destroy_user_session_path, method: :delete)
-              - else
-                li
-                  = link_to('注册', new_user_registration_path)
-                li
-                  = link_to('登录', new_user_session_path)
-        div.clearfix
+      div.header-part
+        div.head-logo
+          a
+            = link_to(image_tag('logo.png', size: '350x40'), root_path)
+        div.top-nav
+          ul.nav1
+            - if user_signed_in?
+              li
+                a.scroll href="#home" 主页
+              li
+                a.scroll href="#about" 关于
+              li
+                a.scroll href="#todo"  To Do List
+              li
+                a.scroll href="#blog" Blog
+              li
+                = link_to('退出登录', destroy_user_session_path, method: :delete)
+            - else
+              li
+                = link_to('注册', new_user_registration_path)
+              li
+                = link_to('登录', new_user_session_path)
+      div.clearfix
 
     div.container-fluid
       div.page
