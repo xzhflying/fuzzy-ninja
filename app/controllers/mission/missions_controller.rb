@@ -11,11 +11,12 @@ class Mission::MissionsController < Mission::Controller
     @mission['user_id'] = current_user.id
 
     @mission.save
-    #redirect_to @mission
+    redirect_to @mission
   end
 
   private
-    def mission_params
-      params.require(:mission).permit(:target, :description)
-    end
+
+  def mission_params
+    params.require(:mission).permit(:target, :description)
+  end
 end
