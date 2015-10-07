@@ -2,7 +2,7 @@
   border-bottom:solid 2px #5DC9C9;
 }
 .header-part{
-  margin: 1.5em 0;
+  margin: 10px;
 }
 .head-logo{
   float: left;
@@ -10,7 +10,7 @@
 }
 .top-nav{
   float: right;
-  margin-right: 50px;
+  margin-right: 40px;
 }
 .top-nav ul{
   padding:0;
@@ -23,6 +23,7 @@
 .top-nav ul li a{
   color:#97999B;
   font-size:17px;
+  line-height:50px;
   transition:.5s all;
   -webkit-transition:.5s all;
   -moz-transition:.5s all;
