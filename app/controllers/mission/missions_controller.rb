@@ -7,6 +7,15 @@ class Mission::MissionsController < Mission::Controller
   end
 
   def create
-    render plain: params[:article].inspect
+    @mission = Mission.new(mission_params)
+    @mission['user_id'] = current_user.id
+
+    @mission.save
+    #redirect_to @mission
   end
+
+  private
+    def mission_params
+      params.require(:mission).permit(:target, :description)
+    end
 end
