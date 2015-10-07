@@ -5,4 +5,8 @@ class Mission::MissionsController < Mission::Controller
 
   def new
   end
+
+  def create
+    render plain: params[:article].inspect
+  end
 end

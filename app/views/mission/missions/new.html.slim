@@ -1,0 +1,13 @@
+h1 Create a mission
+
+= form_for :mission do |f|
+    p
+      = f.label :target
+      br
+      = f.text_field :title
+    p
+      = f.label :description
+      br
+      = f.text_field :description
+    p
+      = f.submit

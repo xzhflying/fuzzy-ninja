@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20151001141913) do
     t.integer  "supervisor_id", index: {name: "fk__missions_supervisor_id"}, foreign_key: {references: "users", name: "fk_missions_supervisor_id", on_update: :no_action, on_delete: :no_action}
     t.string   "target",        null: false
     t.string   "description"
+    t.datetime "deadline"
     t.integer  "status",        default: 0, null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

@@ -7,6 +7,7 @@ class CreateMissions < ActiveRecord::Migration
       t.belongs_to :supervisor, foreign_key: { references: :users }
       t.string :target, null: false
       t.string :description
+      t.datetime :deadline
       t.integer :status, null: false, default: 0
 
       t.timestamps null: false
