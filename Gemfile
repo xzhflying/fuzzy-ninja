@@ -47,6 +47,10 @@ gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'autoprefixer-rails'
 
+# bootstrap3-datetimepicker-rails
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
