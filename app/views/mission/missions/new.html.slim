@@ -1,0 +1,28 @@
+h1 Create a mission
+
+= form_for :mission, url: missions_path do |f|
+    p
+      = f.label :target
+      br
+      = f.text_field :target
+    p
+      = f.label :description
+      br
+      = f.text_field :description
+    p
+      div class="row"
+          div class='col-sm-3'
+              div class="form-group"
+                  div class='input-group date' id='datetimepicker1'
+                      input type='text' class="form-control" name="mission[deadline]" id="mission_target"
+                      span class="input-group-addon"
+                          span class="glyphicon glyphicon-calendar"
+
+          javascript:
+              $(function () {
+                  $('#datetimepicker1').datetimepicker({
+                    format: 'YYYY-MM-DD hh:mm:ss'
+                  });
+              });
+    p
+      = f.submit
