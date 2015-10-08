@@ -9,14 +9,19 @@ class Mission::MissionsController < Mission::Controller
   def create
     @mission = Mission.new(mission_params)
     @mission['user_id'] = current_user.id
+    @mission['deadline'] = @deadline
 
     @mission.save
     redirect_to @mission
   end
 
+  def show
+    @mission = Mission.find(params[:id])
+  end
+
   private
 
   def mission_params
-    params.require(:mission).permit(:target, :description)
+    params.require(:mission).permit(:target, :description, :deadline)
   end
 end

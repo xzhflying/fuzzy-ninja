@@ -12,6 +12,7 @@ h1 Create a mission
     p
       = f.label :deadline
       br
-      = f.text_field :deadline
+      = select_datetime Date.today, prefix: :deadline
+      = select_time
     p
       = f.submit
