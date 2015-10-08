@@ -9,7 +9,6 @@ class Mission::MissionsController < Mission::Controller
   def create
     @mission = Mission.new(mission_params)
     @mission['user_id'] = current_user.id
-    @mission['deadline'] = @deadline
 
     @mission.save
     redirect_to @mission
