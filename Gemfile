@@ -39,6 +39,8 @@ gem 'high_voltage', '~> 2.3.0'
 gem 'slim-rails'
 # Devise to manage user
 gem 'devise'
+# Use cancancan for authorization
+gem 'cancancan'
 
 # Use jQuery as the JavaScript library
 gem 'jquery-cdn'
