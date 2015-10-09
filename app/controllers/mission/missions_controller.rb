@@ -32,6 +32,13 @@ class Mission::MissionsController < Mission::Controller
     end
   end
 
+  def destroy
+    @mission = Mission.find(params[:id])
+    @mission.destroy
+
+    redirect_to :my_missions
+  end
+
   def show
     @mission = Mission.find(params[:id])
   end
