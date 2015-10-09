@@ -1,7 +1,40 @@
 h1
   = '我的任务：'
-- if @my_missions
-  - @my_missions.each do |mission|
-    = mission.inspect
+
+- if @my_missions.any?
+    table
+      tr
+        th = '目标'
+        th = '任务描述'
+        th = '截止日期'
+        th = '监督人'
+        th colspan="4"
+
+      - @my_missions.each do |mission|
+        tr
+          td
+            = mission.target
+          td
+            - if mission.description
+                = mission.description
+            - else
+                = '尚无描述'
+          td
+            = mission.deadline
+          td
+            - if mission.supervisor_id
+                = mission.supervisor_id
+            - else
+                = '无监督人'
+          td
+            = link_to '详情', mission_path(mission)
+          td
+            = link_to '编辑', edit_mission_path(mission)
+          td
+            = link_to '删除', mission_path(mission),
+                              method: :delete,
+                              data: { confirm: '确定删除？' }
 - else
   h3 = '你还没有创建任务'
+
+= link_to '创建新任务', new_mission_path
