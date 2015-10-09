@@ -7,6 +7,10 @@ class Mission::MissionsController < Mission::Controller
     @mission = Mission.new
   end
 
+  def edit
+    @mission = Mission.find(params[:id])
+  end
+
   def create
     @mission = Mission.new(mission_params)
     @mission['user_id'] = current_user.id
@@ -15,6 +19,16 @@ class Mission::MissionsController < Mission::Controller
       redirect_to @mission
     else
       render 'new'
+    end
+  end
+
+  def update
+    @mission = Mission.find(params[:id])
+
+    if @mission.update(mission_params)
+      redirect_to @mission
+    else
+      render 'edit'
     end
   end
 
