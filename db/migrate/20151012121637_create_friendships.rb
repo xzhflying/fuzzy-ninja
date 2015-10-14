@@ -8,6 +8,6 @@ class CreateFriendships < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_reference :friendships, :friend, references: :users
+    add_reference :friendships, :friend, null: false, references: :users
   end
 end

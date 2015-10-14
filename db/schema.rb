@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20151012121637) do
     t.integer  "accepted",   default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "friend_id",  index: {name: "fk__friendships_friend_id"}, foreign_key: {references: "users", name: "fk_friendships_friend_id", on_update: :no_action, on_delete: :no_action}
+    t.integer  "friend_id",  null: false, index: {name: "fk__friendships_friend_id"}, foreign_key: {references: "users", name: "fk_friendships_friend_id", on_update: :no_action, on_delete: :no_action}
   end
 
   create_table "missions", force: :cascade do |t|
