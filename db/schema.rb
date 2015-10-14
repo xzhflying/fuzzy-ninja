@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001141913) do
+ActiveRecord::Schema.define(version: 20151012121637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20151001141913) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "user_id",    null: false, index: {name: "fk__friendships_user_id"}, foreign_key: {references: "users", name: "fk_friendships_user_id", on_update: :no_action, on_delete: :no_action}
+    t.integer  "accepted",   default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "friend_id",  index: {name: "fk__friendships_friend_id"}, foreign_key: {references: "users", name: "fk_friendships_friend_id", on_update: :no_action, on_delete: :no_action}
   end
 
   create_table "missions", force: :cascade do |t|
