@@ -1,0 +1,21 @@
+h1
+  = '任务系统'
+
+.container
+  .row
+    .col-sm-2
+        = link_to "我的任务", "my_missions"
+    .col-sm-2
+        = link_to "新建任务", new_mission_path
+    .col-sm-8
+      = form_tag("/mission_system", method: "get") do
+        = label_tag(:email, "添加好友")
+        = text_field_tag(:email, "邮箱地址")
+        = submit_tag("发送申请")
+  .row
+      h2
+        = "任务板"
+      p
+        = "任务1"
+      p
+        = "任务2"
