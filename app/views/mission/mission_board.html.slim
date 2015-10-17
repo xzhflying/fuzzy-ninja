@@ -8,7 +8,7 @@ h1
     .col-sm-2
         = link_to "新建任务", new_mission_path
     .col-sm-8
-      = form_tag("/mission_system", method: "get") do
+      = form_tag("/mission/mission_board", method: "get") do
         = label_tag(:email, "添加好友")
         = text_field_tag(:email, "邮箱地址")
         = submit_tag("发送申请")
