@@ -9,5 +9,5 @@ class User < ActiveRecord::Base
   has_many :supervisions, class_name: Mission.name, inverse_of: :supervisor
 
   has_many :friendships, dependent: :destroy, inverse_of: :user
-  has_many :friends, through: :friendships, class_name: "User"
+  has_many :friends, through: :friendships, class_name: 'User'
 end
