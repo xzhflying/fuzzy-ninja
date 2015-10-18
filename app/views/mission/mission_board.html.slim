@@ -1,9 +1,10 @@
 h1
   = '任务系统'
 ul
-  - @friendship.errors.full_messages.each do |msg|
-    li
-      = msg
+  - unless @friendship.nil?
+    - @friendship.errors.full_messages.each do |msg|
+      li
+        = msg
 
 
 .container
@@ -15,7 +16,7 @@ ul
     .col-sm-2
         = link_to "我的好友", my_friends_path
     .col-sm-6
-      = form_tag("/mission/mission_board", method: "get") do
+      = form_tag(new_friendship_path, method: "get") do
         = label_tag(:email, "添加好友")
         = text_field_tag(:email, "邮箱地址")
         = submit_tag("发送申请")

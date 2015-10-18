@@ -60,11 +60,12 @@ Rails.application.routes.draw do
     resources :missions
     resources :friendships
 
-    get 'mission/mission_board' => '#mission_board'
+    get 'mission/mission_board' => '#mission_board', as: :mission_board
 
     get 'mission/my_missions' => 'missions#my_missions', as: :my_missions
 
     get 'mission/my_friends' => 'friendships#my_friends', as: :my_friends
-    resources :friendships
+
+    get 'mission/my_friends/:id' => 'friendships#grant_request', as: :grant_request
   end
 end

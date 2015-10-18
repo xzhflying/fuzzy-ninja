@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20151012121637) do
     t.datetime "updated_at", null: false
     t.integer  "friend_id",  null: false, index: {name: "fk__friendships_friend_id"}, foreign_key: {references: "users", name: "fk_friendships_friend_id", on_update: :no_action, on_delete: :no_action}
   end
+  add_index "friendships", ["friend_id", "user_id"], name: "index_friendships_on_friend_id_and_user_id", unique: true
 
   create_table "missions", force: :cascade do |t|
     t.integer  "user_id",       null: false, index: {name: "fk__missions_user_id"}, foreign_key: {references: "users", name: "fk_missions_user_id", on_update: :no_action, on_delete: :no_action}

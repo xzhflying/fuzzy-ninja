@@ -1,7 +1,32 @@
 h1
   = "我的好友"
-p
+- unless @friendship.nil?
+  - @friendship.errors.full_messages.each do |msg|
+    = msg
+
+table
+  tr
+    th = '好友id'
+    th = '好友邮箱'
   - @friendships.each do |friendship|
-    p
-      == @friend = User.find_by_id(friendship.friend_id)
-      = @friend.email
+    - if friendship.accepted == "granted"
+      tr
+        - @friend = User.find_by_id(friendship.friend_id)
+        td = @friend.id
+        td = @friend.email
+
+h1
+  = "好友申请"
+table
+  tr
+    th = '好友id'
+    th = '好友邮箱'
+  - @friendships.each do |friendship|
+    - if friendship.accepted == "unaccepted"
+      tr
+        - @friend = User.find_by_id(friendship.friend_id)
+        td = @friend.id
+        td = @friend.email
+        td
+          = link_to '允许', grant_request_path(friendship.id),
+                          data: { confirm: '确定添加好友？'}
