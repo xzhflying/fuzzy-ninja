@@ -1,5 +1,10 @@
 h1
   = '任务系统'
+ul
+  - @friendship.errors.full_messages.each do |msg|
+    li
+      = msg
+
 
 .container
   .row

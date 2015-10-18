@@ -1,5 +1,6 @@
 class Mission::Controller < ApplicationController
   def mission_board
+    @friendship = Friendship.new
     @target_user = User.find_by_email(params[:email])
 
     unless @target_user.nil?
