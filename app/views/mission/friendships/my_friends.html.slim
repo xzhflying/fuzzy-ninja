@@ -1,0 +1,7 @@
+h1
+  = "我的好友"
+p
+  - @friendships.each do |friendship|
+    p
+      == @friend = User.find_by_id(friendship.friend_id)
+      = @friend.email
