@@ -39,6 +39,8 @@ gem 'high_voltage', '~> 2.3.0'
 gem 'slim-rails'
 # Devise to manage user
 gem 'devise'
+# Use cancancan for authorization
+gem 'cancancan'
 
 # Use jQuery as the JavaScript library
 gem 'jquery-cdn'
@@ -46,6 +48,10 @@ gem 'jquery-cdn'
 gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'autoprefixer-rails'
+
+# bootstrap3-datetimepicker-rails
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

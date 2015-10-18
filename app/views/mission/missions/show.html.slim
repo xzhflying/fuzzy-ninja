@@ -1,0 +1,15 @@
+p
+  strong
+    | 目标：
+  = @mission.target
+p
+  strong
+    | 任务描述：
+  = @mission.description
+p
+  strong
+    | 截止日期：
+  = @mission.deadline
+
+= link_to '编辑', edit_mission_path(@mission)
+= link_to '返回',  :action => :my_missions

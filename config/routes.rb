@@ -57,7 +57,9 @@ Rails.application.routes.draw do
   #   end
 
   scope module: 'mission' do
-    resources :misisons
+    resources :missions
     get 'mission/my_missions' => 'missions#my_missions', as: :my_missions
+    get 'mission/mission_board' => '#mission_board'
+    resources :friendships
   end
 end
