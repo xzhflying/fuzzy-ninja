@@ -1,35 +1,48 @@
-.header{
-  background-image: linear-gradient(to bottom, #fafafa, #eaeaea);
-  border-bottom: 2px solid #dcdcdc;
+$lightgray-top: #fafafa;
+$lightgray-bottom: #eaeaea;
+$hover-blue: #5dc9c9;
+$border-bottom: #dcdcdc;
+$header-box-shadow: #cecdcd;
+$header-word: #686c6d;
+
+.header {
+  background-image: linear-gradient(to bottom, $lightgray-top, $lightgray-bottom);
+  border-bottom: 2px solid $border-bottom;
   border-radius: 0 0 35px 35px;
-  box-shadow: 0 1px 1px #cecdcd inset;
+  box-shadow: 0 1px 1px #header-box-shadow inset;
   left: 0;
   position: fixed;
   top: 0;
   width: 100%;
 }
-.header-part{
+
+.header-part {
   margin: 0;
   padding: 10px 0 0 0;
 }
-.head-logo{
+
+.head-logo {
   float: left;
   margin-left: 100px;
 }
-.top-nav{
+
+.top-nav {
   float: right;
   margin-right: 50px;
 }
-.top-nav ul{
+
+.top-nav ul {
   margin: 0;
   padding: 0;
 }
-.top-nav ul li{
+
+.top-nav ul li {
   display: inline-block;
   margin: 0.5em 2em 0;
 }
-.top-nav ul li a{
-  color: #686c6d;
+
+.top-nav ul li a {
+  color: $header-word;
   font-size:1 7px;
   line-height: 40px;
   -moz-transition: 0.5s all;
@@ -38,19 +51,23 @@
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
 }
-.top-nav ul li a:hover{
-  color: #5dc9c9;
+
+.top-nav ul li a:hover {
+  color: $hover-blue;
   text-decoration: none;
   padding: 1.4em 0 0;
-  border-top: 3px solid #5dc9c9;
+  border-top: 3px solid $hover-blue;
 }
-.head-logo a{
+
+.head-logo a {
   display: block;
 }
+
 .top-nav p {
   margin: 2.1em 0;
 }
-.top-nav p a:hover{
-  color: #5dc9c9;
+
+.top-nav p a:hover {
+  color: $hover-blue;
   text-decoration: none;
 }
