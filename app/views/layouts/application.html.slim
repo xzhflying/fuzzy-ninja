@@ -1,4 +1,4 @@
-doctype html
+﻿doctype html
 html
   head
     title
@@ -42,3 +42,47 @@ html
     div.container-fluid
       div.page
         = yield
+
+    div.footer
+      div.container
+        div.row
+          div.col-sm-4
+            div.widget
+              h4.title
+                |  友情链接 
+              div.content.friend-links
+                a[href="#"]
+                  | Link One
+                a[href="#"]
+                  | Link Two
+          div.col-sm-4
+            div.widget
+              h4.title
+                |  关于我们 
+              div.content.about-us
+                a[href="#"]
+                  | 毛绒绒
+                a[href="#"]
+                  | 忍者
+                a[href="#"]
+                  | 金色伊瑟拉
+                a[href="#"]
+                  | 王天系列
+                a[href="#"]
+                  | B206
+                a[href="#"]
+                  | 海南鸡饭
+          div.col-sm-4
+            div.widget
+              h4.title
+                |  此条待定 
+              div.content.to-be-developed
+                a[href="#"]
+                  | To Be Developed
+      div.website-info
+        span
+          |  A Personal Website 
+        span
+          |  | 
+        span
+          |  Just For Fun 
