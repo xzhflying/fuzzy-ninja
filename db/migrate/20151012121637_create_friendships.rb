@@ -9,5 +9,6 @@ class CreateFriendships < ActiveRecord::Migration
     end
 
     add_reference :friendships, :friend, null: false, references: :users
+    add_index :friendships, [:friend_id, :user_id], unique: true
   end
 end

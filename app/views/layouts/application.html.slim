@@ -23,15 +23,20 @@ html
                   =link_to("主页", root_path)
               li
                 a.scroll
-                  =link_to("关于", "#about")
-              li
-                a.scroll
                   =link_to("To Do List", my_missions_path)
               li
                 a.scroll
                   =link_to("Blog", "#blog")
               li
                 = link_to('退出登录', destroy_user_session_path, method: :delete)
+              li
+                = link_to "我的好友", my_friends_path
+              li
+                = form_for :friendship, url: friendships_path do |f|
+                  = f.label "添加好友"
+                  = f.text_field :email, :value => "邮箱地址"
+                  = f.submit("发送申请")
+
             - else
               li
                 = link_to('注册', new_user_registration_path)
@@ -49,7 +54,7 @@ html
           div.col-sm-4
             div.widget
               h4.title
-                |  友情链接 
+                |  友情链接
               div.content.friend-links
                 a[href="#"]
                   | Link One
@@ -58,7 +63,7 @@ html
           div.col-sm-4
             div.widget
               h4.title
-                |  关于我们 
+                |  关于我们
               div.content.about-us
                 a[href="#"]
                   | ONE
@@ -75,14 +80,14 @@ html
           div.col-sm-4
             div.widget
               h4.title
-                |  此条待定 
+                |  此条待定
               div.content.to-be-developed
                 a[href="#"]
                   | To Be Developed
       div.website-info
         span
-          |  A Personal Website 
+          |  A Personal Website
         span
-          |  | 
+          |  |
         span
-          |  Just For Fun 
+          |  Just For Fun
