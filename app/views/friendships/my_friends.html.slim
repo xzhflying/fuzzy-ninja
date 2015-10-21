@@ -14,19 +14,24 @@ table
         - @friend = User.find_by_id(friendship.friend_id)
         td = @friend.id
         td = @friend.email
-
-h1
-  = "好友申请"
-table
-  tr
-    th = '好友id'
-    th = '好友邮箱'
-  - @friendships.each do |friendship|
     - if friendship.accepted == "unaccepted"
       tr
         - @friend = User.find_by_id(friendship.friend_id)
         td = @friend.id
         td = @friend.email
-        td
-          = link_to '允许', grant_request_path(friendship.id),
-                          data: { confirm: '确定添加好友？'}
+        td = "尚未通过"
+        
+- unless @requests.empty?
+  h1
+    = "有新的好友申请"
+  table
+    tr
+      th = '好友id'
+      th = '好友邮箱'
+    - @requests.each do |request|
+      tr
+        - @applicant = User.find_by_id(request.user_id)
+        td = @applicant.id
+        td = @applicant.email
+        td = link_to '允许', grant_request_path(request.id),
+          data: { confirm: '确定添加好友？'}
