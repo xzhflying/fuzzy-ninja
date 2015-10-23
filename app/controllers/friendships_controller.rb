@@ -22,6 +22,13 @@ class FriendshipsController < ApplicationController
   def grant_request
     @friendship.granted!
     @friendship.save
+
+    @reverse_friendship = Friendship.new
+    @reverse_friendship.user_id = @friendship.friend_id
+    @reverse_friendship.friend_id = @friendship.user_id
+    @reverse_friendship.granted!
+    @reverse_friendship.save
+    
     redirect_to my_friends_path
   end
 
