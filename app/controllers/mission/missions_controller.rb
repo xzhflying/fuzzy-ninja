@@ -4,27 +4,21 @@ class Mission::MissionsController < Mission::Controller
   end
 
   def new
-    @mission = Mission.new
   end
 
   def edit
-    @mission = Mission.find(params[:id])
   end
 
   def create
-    @mission = Mission.new(mission_params)
-    @mission['user_id'] = current_user.id
-
+    @mission.user = current_user
     if @mission.save
-      redirect_to @mission
+      redirect_to @mission, success: "任务创建成功"
     else
       render 'new'
     end
   end
 
   def update
-    @mission = Mission.find(params[:id])
-
     if @mission.update(mission_params)
       redirect_to @mission
     else
@@ -33,14 +27,12 @@ class Mission::MissionsController < Mission::Controller
   end
 
   def destroy
-    @mission = Mission.find(params[:id])
     @mission.destroy
 
     redirect_to :my_missions
   end
 
   def show
-    @mission = Mission.find(params[:id])
   end
 
   private
