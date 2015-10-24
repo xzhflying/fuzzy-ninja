@@ -11,7 +11,8 @@ class FriendshipsController < ApplicationController
   end
 
   def my_friends
-    @friendships = Friendship.where("(user_id = ? OR friend_id = ?) AND accepted = 1", current_user.id, current_user.id)
+    @friendships = Friendship.where('(user_id = ? OR friend_id = ?) AND accepted = 1',
+                                    current_user.id, current_user.id)
     @requests = Friendship.where('friend_id = ? AND accepted = 0', current_user.id)
   end
 

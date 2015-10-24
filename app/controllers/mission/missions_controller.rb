@@ -3,6 +3,10 @@ class Mission::MissionsController < Mission::Controller
     @my_missions = current_user.missions unless current_user.nil?
   end
 
+  def mission_board
+    render 'mission/mission_board'
+  end
+
   def new
   end
 
@@ -12,7 +16,7 @@ class Mission::MissionsController < Mission::Controller
   def create
     @mission.user = current_user
     if @mission.save
-      redirect_to @mission, success: "任务创建成功"
+      redirect_to @mission, success: '任务创建成功'
     else
       render 'new'
     end

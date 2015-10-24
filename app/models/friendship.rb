@@ -4,7 +4,7 @@ class Friendship < ActiveRecord::Base
   enum accepted: { unaccepted: 0, granted: 1 }
 
   belongs_to :user, inverse_of: :friendships
-  belongs_to :friend, class_name: 'User', inverse_of: :friendships
+  belongs_to :friend, class_name: User.name, inverse_of: :friendships
 
   private
 
