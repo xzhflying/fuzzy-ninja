@@ -1,25 +1,33 @@
 class FriendshipsController < ApplicationController
+  load_and_authorize_resource :friendship
+
   def create
-    @target_user = User.find_by_email(params[:friendship][:email])
+    @target_user = User.find_by_email(friendship_params[:email])
 
     unless @target_user.nil?
-      @friendship = Friendship.new(user_id: current_user.id, friend_id: @target_user.id)
-      @friendship.save
+      @friendship = current_user.friendships.build(friend_id: @target_user.id)
+      if @friendship.save
+        redirect_to :my_friends, success: '添加好友成功'
+      else
+        redirect_to :my_friends, failure: '添加好友失败'
+      end
     end
-
-    redirect_to :my_friends
   end
 
   def my_friends
-    @friendships = Friendship.where('(user_id = ? OR friend_id = ?) AND accepted = 1',
-                                    current_user.id, current_user.id)
-    @requests = Friendship.where('friend_id = ? AND accepted = 0', current_user.id)
+    @friendships = current_user.friendships.granted
+    @requests = Friendship.unaccepted.where(friend: current_user)
   end
 
   def grant_request
-    @friendship = Friendship.find_by_id(params[:id])
     @friendship.granted!
     @friendship.save
     redirect_to my_friends_path
+  end
+
+  private
+
+  def friendship_params
+    params.require(:friendship).permit(:email)
   end
 end
