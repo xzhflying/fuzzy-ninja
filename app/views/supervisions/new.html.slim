@@ -11,8 +11,4 @@ p
     | 截止日期：
   = @mission.deadline
 
-- if @mission.user_id == current_user.id
-  = link_to '编辑', edit_mission_path(@mission)
-- else
-  = link_to '监督', supervisions_path(@mission)
-= link_to '返回',  :action => :my_missions
+= link_to '返回',  :back

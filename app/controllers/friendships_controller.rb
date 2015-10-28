@@ -2,7 +2,7 @@ class FriendshipsController < ApplicationController
   load_and_authorize_resource :friendship
 
   def create
-    @target_user = User.find_by_email(friendship_params[:email])
+    @target_user = User.find_by_email(params[:friendship][:email])
 
     unless @target_user.nil?
       @friendship = current_user.friendships.build(friend_id: @target_user.id)
