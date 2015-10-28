@@ -2,7 +2,7 @@ class FriendshipsController < ApplicationController
   load_and_authorize_resource :friendship
 
   def create
-    @target_user = User.find_by_email(friendship_params[:email])
+    @target_user = User.find_by_email(params[:friendship][:email])
 
     unless @target_user.nil?
       @friendship = current_user.friendships.build(friend_id: @target_user.id)
@@ -22,6 +22,13 @@ class FriendshipsController < ApplicationController
   def grant_request
     @friendship.granted!
     @friendship.save
+
+    @reverse_friendship = Friendship.new
+    @reverse_friendship.user_id = @friendship.friend_id
+    @reverse_friendship.friend_id = @friendship.user_id
+    @reverse_friendship.granted!
+    @reverse_friendship.save
+
     redirect_to my_friends_path
   end
 

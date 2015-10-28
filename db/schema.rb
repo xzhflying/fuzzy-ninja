@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012121637) do
+ActiveRecord::Schema.define(version: 20151028125334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,5 +58,14 @@ ActiveRecord::Schema.define(version: 20151012121637) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "supervisions", force: :cascade do |t|
+    t.integer  "mission_id",    null: false, index: {name: "fk__supervisions_mission_id"}
+    t.integer  "accepted",      default: 0, null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "supervisor_id", null: false, index: {name: "fk__supervisions_supervisor_id"}
+  end
+  add_index "supervisions", ["mission_id", "supervisor_id"], name: "index_supervisions_on_mission_id_and_supervisor_id", unique: true
 
 end
