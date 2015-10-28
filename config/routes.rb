@@ -69,4 +69,6 @@ Rails.application.routes.draw do
 
     get 'mission/my_missions' => 'missions#my_missions', as: :my_missions
   end
+
+  resources :supervisions
 end
