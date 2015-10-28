@@ -11,6 +11,16 @@ $website-info-content: #555;
 body {
   margin: 0;
   padding-top: 60px;
+  height: 100%;
+}
+
+.wrapper {
+  min-height:100%;
+  position:relative;
+}
+
+.container-fluid {
+  padding-bottom: 455px;
 }
 
 .footer {
