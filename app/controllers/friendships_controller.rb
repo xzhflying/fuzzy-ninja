@@ -28,7 +28,7 @@ class FriendshipsController < ApplicationController
     @reverse_friendship.friend_id = @friendship.user_id
     @reverse_friendship.granted!
     @reverse_friendship.save
-    
+
     redirect_to my_friends_path
   end
 
