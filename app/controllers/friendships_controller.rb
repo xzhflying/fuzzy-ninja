@@ -2,9 +2,11 @@ class FriendshipsController < ApplicationController
   load_and_authorize_resource :friendship
 
   def create
-    @target_user = User.find_by_email(params[:friendship][:email])
+    @target_user = User.find_by_email(friend_info_params[:email])
 
-    unless @target_user.nil?
+    if @target_user.nil?
+      redirect_to :back, failure: '用户不存在'
+    else
       @friendship = current_user.friendships.build(friend_id: @target_user.id)
       if @friendship.save
         redirect_to :my_friends, success: '添加好友成功'
@@ -34,7 +36,7 @@ class FriendshipsController < ApplicationController
 
   private
 
-  def friendship_params
-    params.require(:friendship).permit(:email)
+  def friend_info_params
+    params.require(:friend_info).permit(:email)
   end
 end
