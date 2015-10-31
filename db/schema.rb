@@ -60,11 +60,11 @@ ActiveRecord::Schema.define(version: 20151028125334) do
   end
 
   create_table "supervisions", force: :cascade do |t|
-    t.integer  "mission_id",    null: false, index: {name: "fk__supervisions_mission_id"}
+    t.integer  "mission_id",    null: false, index: {name: "fk__supervisions_mission_id"}, foreign_key: {references: "missions", name: "fk_supervisions_mission_id", on_update: :no_action, on_delete: :no_action}
+    t.integer  "supervisor_id", null: false, index: {name: "fk__supervisions_supervisor_id"}, foreign_key: {references: "users", name: "fk_supervisions_supervisor_id", on_update: :no_action, on_delete: :no_action}
     t.integer  "accepted",      default: 0, null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.integer  "supervisor_id", null: false, index: {name: "fk__supervisions_supervisor_id"}
   end
   add_index "supervisions", ["mission_id", "supervisor_id"], name: "index_supervisions_on_mission_id_and_supervisor_id", unique: true
 

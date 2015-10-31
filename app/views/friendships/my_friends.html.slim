@@ -20,7 +20,7 @@ table
         td = @friend.id
         td = @friend.email
         td = "尚未通过"
-        
+
 - unless @requests.empty?
   h1
     = "有新的好友申请"
@@ -35,3 +35,5 @@ table
         td = @applicant.email
         td = link_to '允许', grant_request_path(request.id),
           data: { confirm: '确定添加好友？'}
+- else
+  = "no requests"
