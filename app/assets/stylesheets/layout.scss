@@ -1,4 +1,6 @@
-@import "bootstrap";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'bootstrap-datetimepicker';
 @import "header";
 
 $footer-bg: #202020;
