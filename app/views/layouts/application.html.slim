@@ -29,13 +29,14 @@ html
                   a.scroll
                     =link_to("Blog", "#blog")
                 li
-                  = link_to('退出登录', destroy_user_session_path, method: :delete)
-                li
-                  = link_to "我的好友", my_friends_path
-                li
-
-                  = render "friendships/form"
-
+                  a.dropdown-toggle data-toggle="dropdown"
+                    => current_user.name
+                    span.caret
+                  ul.dropdown-menu
+                    li
+                      = link_to("我的好友", my_friends_path)
+                    li
+                      = link_to('退出登录', destroy_user_session_path, method: :delete)
               - else
                 li
                   = link_to('注册', new_user_registration_path)

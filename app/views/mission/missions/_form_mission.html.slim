@@ -3,13 +3,6 @@
 
   = f.input :target, label: '目标'
   = f.input :description, label: '任务描述'
-  p
-    = '截止日期：'
-    .row
-      .col-sm-3
-        .form-group
-          #datetimepicker.input-group.date
-            input#mission_target.form-control type='text' name="mission[deadline]"
-            span.input-group-addon
-              span.glyphicon.glyphicon-calendar
+  = f.input :deadline, label: '截止日期：'
+
   = f.submit '提交'
