@@ -7,8 +7,7 @@ class FriendshipsController < ApplicationController
     if @target_user.nil?
       redirect_to :back, failure: '用户不存在'
     else
-      @friendship = current_user.friendships.build(friend_id: @target_user.id)
-      if @friendship.save
+      if current_user.friendships.build(friend: @target_user).save
         redirect_to :my_friends, success: '添加好友成功'
       else
         redirect_to :my_friends, failure: '添加好友失败'
