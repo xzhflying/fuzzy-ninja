@@ -1,4 +1,4 @@
-= form_for :friend_info, url: friendships_path do |f|
+= simple_form_for :friend_info, url: friendships_path do |f|
   = f.label "添加好友"
-  = f.text_field :email, :value => "邮箱地址"
-  = f.submit("发送申请")
+  = f.input :email, label: "邮箱地址"
+  = f.submit "发送申请"

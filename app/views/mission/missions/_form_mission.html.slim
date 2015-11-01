@@ -1,29 +1,15 @@
-= form_for @mission do |f|
+= simple_form_for @mission do |f|
+  = f.error_notification
 
-  - if @mission.errors.any?
-    #error_explanation
-      h2
-        = '提交失败'
-      ul
-        - @mission.errors.full_messages.each do |msg|
-          li
-            = msg
-  p
-    = '目标：'
-    br
-    = f.text_field :target
-  p
-    = '任务描述：'
-    br
-    = f.text_field :description
+  = f.input :target, label: '目标'
+  = f.input :description, label: '任务描述'
   p
     = '截止日期：'
     .row
-        .col-sm-3
-            .form-group
-                #datetimepicker.input-group.date
-                    input#mission_target.form-control type='text' name="mission[deadline]"
-                    span.input-group-addon
-                        span.glyphicon.glyphicon-calendar
-  p
-    = f.submit
+      .col-sm-3
+        .form-group
+          #datetimepicker.input-group.date
+            input#mission_target.form-control type='text' name="mission[deadline]"
+            span.input-group-addon
+              span.glyphicon.glyphicon-calendar
+  = f.submit '提交'
