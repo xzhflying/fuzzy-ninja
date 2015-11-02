@@ -1,0 +1,16 @@
+= content_tag_for(:tr, mission) do
+  td
+  td
+    div.mission
+      .h4
+        = link_to(mission.target, mission_path(mission))
+  td
+    .h5
+      = mission.description
+  td = mission.deadline
+  - if mission.supervisor
+    td = mission.supervisor.name
+  - else
+    td
+      .h5 = '暂无监督者'
+  td

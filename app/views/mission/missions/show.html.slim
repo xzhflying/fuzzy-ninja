@@ -1,18 +1,13 @@
-p
-  strong
-    | 目标：
-  = @mission.target
-p
-  strong
-    | 任务描述：
-  = @mission.description
-p
-  strong
-    | 截止日期：
-  = @mission.deadline
+= page_header(@mission.target) do
+  = render 'controls'
 
-- if @mission.user == current_user
-  = link_to '编辑', edit_mission_path(@mission)
-- else
-  = link_to '监督', supervisions_path(@mission)
-= link_to '返回',  :back
+.form-horizontal
+  .h3 = '目标 :'
+  .alert.alert-success
+    = @mission.target
+  .h3 = '任务描述 :'
+  .alert.alert-info
+    = @mission.description
+  .h3 = '截止日期 :'
+  .alert.alert-danger id="time"
+    = @mission.deadline

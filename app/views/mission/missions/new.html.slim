@@ -1,4 +1,3 @@
-h1 创建新任务
+h1 = '创建新任务'
 
-= render 'form_mission'
-= link_to '返回',  :action => :my_missions
+= render partial: 'form', locals: { back_url: my_missions_path }
