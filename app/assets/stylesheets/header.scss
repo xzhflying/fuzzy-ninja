@@ -29,34 +29,33 @@ $header-word: #686c6d;
 .top-nav {
   float: right;
   margin-right: 50px;
-}
-
-.top-nav ul {
-  margin: 0;
-  padding: 0;
-}
-
-.top-nav ul li {
-  display: inline-block;
-  margin: 0.5em 2em 0;
-}
-
-.top-nav ul li a {
-  color: $header-word;
-  font-size:1 7px;
-  line-height: 40px;
-  -moz-transition: 0.5s all;
-  -ms-transition: 0.5s all;
-  -o-transition: 0.5s all;
-  -webkit-transition: 0.5s all;
-  transition: 0.5s all;
-}
-
-.top-nav ul li a:hover {
-  color: $hover-blue;
-  text-decoration: none;
-  padding: 1.4em 0 0;
-  border-top: 3px solid $hover-blue;
+  .myul {
+    margin: 0;
+    padding: 0;
+    .myli {
+      display: inline-block;
+      margin: 0.5em 2em 0;
+      .mya {
+        font-size: 15px;
+        line-height: 40px;
+        -moz-transition: 0.5s all;
+        -o-transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        transition: 0.5s all;
+        :hover {
+          color: $hover-blue;
+          text-decoration: none;
+          padding: 1.4em 0 0;
+          border-top: 3px solid $hover-blue;
+        }
+      }
+      a {
+        color: $header-word;
+        font-size: 15px;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 .head-logo a {
