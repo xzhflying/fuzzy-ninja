@@ -8,7 +8,7 @@ RSpec.describe Mission::MissionsController, type: :controller do
 
     it 'loads my missions' do
       get 'my_missions'
-      expect(controller.instance_variable_get(:@my_missions).count).to eq(2)
+      expect(controller.instance_variable_get(:@missions).count).to eq(2)
     end
   end
 end

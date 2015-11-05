@@ -1,9 +1,11 @@
 class Mission::MissionsController < Mission::Controller
   def my_missions
-    @my_missions = current_user.missions unless current_user.nil?
+    @missions = current_user.missions unless current_user.nil?
   end
 
   def mission_board
+    @missions = Mission.order(created_at: :desc).where(user_id:
+      [current_user] + current_user.friends)
     render 'mission/mission_board'
   end
 
