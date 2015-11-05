@@ -4,24 +4,23 @@ h1
 .container
   .row
     .col-sm-2
-        = link_to "我的任务", "my_missions"
+        = link_to "我的任务", "my_missions", class:['btn btn-danger']
     .col-sm-2
-        = link_to "新建任务", new_mission_path
+        = link_to "新建任务", new_mission_path, class:['btn btn-primary']
 
   .row
       h2 = "任务板"
       - unless @missions.nil?
-        table
-          tr
-            th = "任务目标"
-            th = "截止日期"
-            th = "发布日期"
-            th = "发布者"
-        - @missions.each do |mission|
-          tr
-            td = mission.target
-            td = mission.deadline
-            td = mission.created_at
-            td = mission.user_id
-            = link_to '查看详情', mission_path(mission)
-            br
+        table.table.mission-list.table-hover
+          thead
+            tr
+              th
+              th = '目标'
+              th = '任务描述'
+              th = '截止日期'
+              th = '监督者'
+              th = '发布者'
+              th = '发布日期'
+              th
+          tbody
+            = render partial: @missions, locals: {format: "mission_board"}

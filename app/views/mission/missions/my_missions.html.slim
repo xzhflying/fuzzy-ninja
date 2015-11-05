@@ -11,4 +11,4 @@ table.table.mission-list.table-hover
       th = '监督人'
       th
   tbody
-    = render @missions
+    = render partial: @missions, locals: {format: "my_missions"}
