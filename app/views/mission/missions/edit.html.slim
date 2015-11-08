@@ -1,5 +1,4 @@
 .page-form
-  .page-header
-    .h2 = '修改任务'
+  = page_header('修改任务: ')
 
   = render partial: 'form', locals: { back_url: mission_path(@mission) }
