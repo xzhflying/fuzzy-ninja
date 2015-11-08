@@ -11,6 +11,10 @@
 - if @mission.unsupervised?
   .label.label-default
     = '无人监督'
+  - if @mission.supervisions
+    . = '有好友愿意监督你完成这项任务'
+    - @mission.supervisions.each do |s|
+      . = s.supervisor.name
 - else
   .label.label-warning
     = '监督中'

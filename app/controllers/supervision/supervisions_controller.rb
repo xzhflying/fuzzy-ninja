@@ -7,7 +7,6 @@ class Supervision::SupervisionsController < Supervision::Controller
     else
       redirect_to mission_path(params[:mission_id]), alert: '申请失败'
     end
-
   end
 
 end
