@@ -1,3 +1,5 @@
-h1 = '修改任务'
+.page-form
+  .page-header
+    .h2 = '修改任务'
 
-= render partial: 'form', locals: { back_url: mission_path(@mission) }
+  = render partial: 'form', locals: { back_url: mission_path(@mission) }
