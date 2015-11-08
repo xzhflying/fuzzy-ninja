@@ -70,5 +70,9 @@ Rails.application.routes.draw do
     get 'mission/my_missions' => 'missions#my_missions', as: :my_missions
   end
 
-  resources :supervisions
+  scope module: 'supervision' do
+    resources :supervisions
+
+    post 'supervision/supervisions' => 'supervisions#create', as: :create_supervision
+  end
 end

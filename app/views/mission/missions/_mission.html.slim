@@ -8,12 +8,12 @@
       .h5
         = mission.description
     td = mission.deadline
-    - if mission.supervisor
+    - if mission.supervised?
       td = mission.supervisor.name
     - else
       td
         .h5 = '暂无监督者'
     - if format == "mission_board"
-      td = mission.user_id
+      td = mission.user.name
       td = mission.created_at
     td

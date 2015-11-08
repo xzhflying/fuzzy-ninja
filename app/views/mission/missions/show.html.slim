@@ -1,6 +1,20 @@
 = page_header(@mission.target) do
   = render 'controls'
 
+- if @mission.unfinished?
+  .label.label-default
+    = '未完成'
+- else
+  .label.label-success
+    = '已完成'
+
+- if @mission.unsupervised?
+  .label.label-default
+    = '无人监督'
+- else
+  .label.label-warning
+    = '监督中'
+
 .form-horizontal
   .h3 = '目标 :'
   .alert.alert-success

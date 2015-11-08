@@ -16,6 +16,14 @@ ActiveRecord::Schema.define(version: 20151105131411) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",    index: {name: "index_comments_on_user_id"}
+    t.integer  "mission_id", index: {name: "index_comments_on_mission_id"}
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name",                   null: false
     t.string   "email",                  null: false, index: {name: "index_users_on_email", unique: true}
@@ -68,6 +76,6 @@ ActiveRecord::Schema.define(version: 20151105131411) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
-  add_index "supervisions", ["mission_id", "supervisor_id"], name: "index_supervisions_on_mission_id_and_supervisor_id", unique: true
+  add_index "supervisions", ["mission_id", "supervisor_id"], name: "index_supervisions_on_mission_id_and_supervisor_id", unique: true, where: "(accepted = 1)"
 
 end

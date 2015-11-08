@@ -1,4 +1,5 @@
 span.pull-right.btn-group
   = link_to('编辑', edit_mission_path(@mission), class: ['btn btn-default']) if can?(:edit, @mission)
-  = link_to('监督', supervisions_path(@mission), class: ['btn btn-info']) if can?(:supervise, @mission)
+  = link_to('监督', create_supervision_path(mission_id: @mission), class: ['btn btn-info'], method: :post) if can?(:supervise, @mission)
+  = link_to('确认完成', mission_path(@mission), class: ['btn btn-success']) if can?(:edit, @mission)
   = link_to('返回', :back, class: ['btn btn-warning'])
