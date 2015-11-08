@@ -16,14 +16,6 @@ ActiveRecord::Schema.define(version: 20151105131411) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comments", force: :cascade do |t|
-    t.integer  "user_id",    index: {name: "index_comments_on_user_id"}
-    t.integer  "mission_id", index: {name: "index_comments_on_mission_id"}
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "name",                   null: false
     t.string   "email",                  null: false, index: {name: "index_users_on_email", unique: true}
@@ -51,7 +43,6 @@ ActiveRecord::Schema.define(version: 20151105131411) do
 
   create_table "missions", force: :cascade do |t|
     t.integer  "user_id",       null: false, index: {name: "fk__missions_user_id"}, foreign_key: {references: "users", name: "fk_missions_user_id", on_update: :no_action, on_delete: :no_action}
-    t.integer  "supervisor_id", index: {name: "fk__missions_supervisor_id"}, foreign_key: {references: "users", name: "fk_missions_supervisor_id", on_update: :no_action, on_delete: :no_action}
     t.string   "target",        null: false
     t.string   "description"
     t.datetime "deadline"
@@ -76,6 +67,6 @@ ActiveRecord::Schema.define(version: 20151105131411) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
-  add_index "supervisions", ["mission_id", "supervisor_id"], name: "index_supervisions_on_mission_id_and_supervisor_id", unique: true, where: "(accepted = 1)"
+  add_index "supervisions", ["mission_id", "supervisor_id"], name: "index_supervisions_on_mission_id_and_supervisor_id", unique: true
 
 end

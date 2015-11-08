@@ -14,10 +14,16 @@
   - if @mission.supervisions
     . = '有好友愿意监督你完成这项任务'
     - @mission.supervisions.each do |s|
-      . = s.supervisor.name
+      h6
+        = s.supervisor.name
+        span= link_to('接受', grant_supervision_path(s.id), class: ['lab btn-info btn-xs'])
+
 - else
   .label.label-warning
-    = '监督中'
+    = "监督者："
+    - @mission.supervisions.each do |s|
+      - if s.accepted?
+        = s.supervisor.name + " "
 
 .form-horizontal
   .h3 = '目标 :'

@@ -7,6 +7,6 @@ class CreateSupervisions < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :supervisions, [:mission_id, :supervisor_id], where: "accepted = 1", unique: true
+    add_index :supervisions, [:mission_id, :supervisor_id], unique: true
   end
 end
