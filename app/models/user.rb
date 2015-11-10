@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :missions, dependent: :destroy
-  has_many :mission_comments, class_name: Mission::Comment.name
   has_many :supervisions, class_name: Mission::Supervision.name, inverse_of: :supervisor
 
   has_many :friendships, dependent: :destroy, inverse_of: :user
