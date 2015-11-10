@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20151105131411) do
 
   create_table "missions", force: :cascade do |t|
     t.integer  "user_id",       null: false, index: {name: "fk__missions_user_id"}, foreign_key: {references: "users", name: "fk_missions_user_id", on_update: :no_action, on_delete: :no_action}
-    t.integer  "supervisor_id", index: {name: "fk__missions_supervisor_id"}, foreign_key: {references: "users", name: "fk_missions_supervisor_id", on_update: :no_action, on_delete: :no_action}
     t.string   "target",        null: false
     t.string   "description"
     t.datetime "deadline"

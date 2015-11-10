@@ -8,12 +8,14 @@
       .h5
         = mission.description
     td = mission.deadline
-    - if mission.supervisor
-      td = mission.supervisor.name
-    - else
-      td
+    td
+      - if mission.supervised?
+        - mission.supervisions.each do |s|
+          - if s.accepted
+            = s.supervisor.name + " "
+      - else
         .h5 = '暂无监督者'
     - if format == "mission_board"
-      td = mission.user_id
+      td = mission.user.name
       td = mission.created_at
     td

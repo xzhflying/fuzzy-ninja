@@ -71,4 +71,7 @@ Rails.application.routes.draw do
   end
 
   resources :supervisions
+
+  post 'supervisions' => 'supervisions#create', as: :create_supervision
+  get 'supervision/:id' => 'supervisions#grant_supervision', as: :grant_supervision
 end

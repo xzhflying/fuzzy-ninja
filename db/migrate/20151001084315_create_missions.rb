@@ -4,7 +4,6 @@ class CreateMissions < ActiveRecord::Migration
 
     create_table :missions do |t|
       t.belongs_to :user, null: false, foreign_key: true
-      t.belongs_to :supervisor, foreign_key: { references: :users }
       t.string :target, null: false
       t.string :description
       t.datetime :deadline
