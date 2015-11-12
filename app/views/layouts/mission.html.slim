@@ -1,0 +1,21 @@
+= extends :application do
+  .col-xs-7.col-sm-3.col-md-2
+    .sidebar-nav.panel.panel-default
+      .panel-heading
+        i.glyphicon.glyphicon-th-list
+        = " 任务系统"
+      .list-group
+        a.list-group-item href= mission_board_path
+          i.glyphicon.glyphicon-list-alt
+          = " 任务板"
+        a.list-group-item href= my_missions_path
+          i.glyphicon.glyphicon-pencil
+          = " 我的任务"
+          i.badge.badge-info = "1"
+        a.list-group-item
+          i.glyphicon.glyphicon-eye-open
+          = " 我监督的任务 "
+          i.badge.badge-info = "2"
+
+  .col-lg-9.col-md-8.col-sm-7
+    = yield

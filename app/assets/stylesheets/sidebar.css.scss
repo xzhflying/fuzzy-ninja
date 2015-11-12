@@ -1,0 +1,37 @@
+.sidebar-nav {
+  background: #f5f5f5;
+  border: 5px solid #f5f5f5;
+  border-radius: 10px 10px 10px 10px;
+  margin-top: 40px;
+}
+.sidebar-nav > .panel-heading {
+  background: #eaeaea;
+  color: black;
+  border-bottom: 0;
+}
+.sidebar-nav a {
+  background: white;
+  color: black;
+}
+.sidebar-nav a:hover,
+.sidebar-nav a:focus {
+  color: #ffffff;
+  background: #428bca;
+}
+.sidebar-nav a:hover .badge,
+.sidebar-nav a:focus .badge {
+  color: #428bca;
+  background: #ffffff;
+}
+.sidebar-nav a .badge {
+  background-color: #428bca;
+}
+.sidebar-nav > .list-group .list-group-item {
+  border: 0;
+}
+.sidebar-nav .divider {
+  background-color: #428bca;
+  height: 1px;
+  margin: 1px 0 0;
+  overflow: hidden;
+}
