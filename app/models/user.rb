@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :missions, dependent: :destroy
   has_many :supervisions, class_name: Mission::Supervision.name, inverse_of: :supervisor
-  has_many :comments, inverse_of: :user
+  has_many :comments, class_name: Mission::Comment.name, inverse_of: :user
   has_many :friendships, dependent: :destroy, inverse_of: :user
   has_many :friends, through: :friendships, class_name: User.name
 end
