@@ -12,6 +12,7 @@ $header-word: #686c6d;
   box-shadow: 0 1px 1px $header-box-shadow inset;
   left: 0;
   position: fixed;
+  z-index: 1000;
   top: 0;
   width: 100%;
 }
