@@ -1,26 +1,19 @@
-h1
-  = '任务系统'
+= page_header('任务板：')
 
-.container
-  .row
-    .col-sm-2
-        = link_to "我的任务", "my_missions", class:['btn btn-danger']
-    .col-sm-2
-        = link_to "新建任务", new_mission_path, class:['btn btn-primary']
-
-  .row
-      h2 = "任务板"
-      - unless @missions.nil?
-        table.table.mission-list.table-hover
-          thead
-            tr
-              th
-              th = '目标'
-              th = '任务描述'
-              th = '截止日期'
-              th = '监督者'
-              th = '发布者'
-              th = '发布日期'
-              th
-          tbody
-            = render partial: @missions, locals: {format: "mission_board"}
+table.table.mission-list.table-hover
+  thead
+    tr
+      th
+      th = '目标'
+      th = '任务描述'
+      th = '截止日期'
+      th = '监督者'
+      th = '发布者'
+      th = '发布日期'
+  tbody
+    - unless @missions.empty?
+      = render partial: @missions, locals: {format: "mission_board"}
+    - else
+      tr
+        td colspan="7" align="center"
+          h3 = "目前没有任务"

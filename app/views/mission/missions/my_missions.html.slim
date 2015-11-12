@@ -11,4 +11,9 @@ table.table.mission-list.table-hover
       th = '监督人'
       th
   tbody
-    = render partial: @missions, locals: {format: "my_missions"}
+    - unless @missions.empty?
+      = render partial: @missions, locals: {format: "my_missions"}
+    - else
+      tr
+        td colspan="6" align="center"
+          h3 = "目前没有任务"
