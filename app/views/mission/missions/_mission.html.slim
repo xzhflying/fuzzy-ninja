@@ -9,10 +9,9 @@
         = mission.description
     td = mission.deadline
     td
-      - if mission.supervised?
+      - if mission.supervisions.granted.any?
         - mission.supervisions.each do |s|
-          - if s.accepted
-            = s.supervisor.name + " "
+          = s.supervisor.name + " "
       - else
         .h5 = '暂无监督者'
     - if format == "mission_board"

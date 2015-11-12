@@ -63,15 +63,13 @@ Rails.application.routes.draw do
   get 'friendship/my_friends/:id' => 'friendships#grant_request', as: :grant_request
 
   scope module: 'mission' do
-    resources :missions
+    resources :missions do
+
+      post 'supervise' => 'supervisions#create', as: :create_supervision
+      get 'supervision/:id' => 'supervisions#grant_supervision', as: :grant_supervision
+    end
 
     get 'mission/mission_board' => 'missions#mission_board', as: :mission_board
-
     get 'mission/my_missions' => 'missions#my_missions', as: :my_missions
   end
-
-  resources :supervisions
-
-  post 'supervisions' => 'supervisions#create', as: :create_supervision
-  get 'supervision/:id' => 'supervisions#grant_supervision', as: :grant_supervision
 end

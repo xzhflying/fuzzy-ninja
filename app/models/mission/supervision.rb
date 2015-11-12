@@ -1,4 +1,4 @@
-class Supervision < ActiveRecord::Base
+class Mission::Supervision < ActiveRecord::Base
   validates :mission_id, presence: true, uniqueness: { scope: :supervisor_id }
   enum accepted: { unaccepted: 0, granted: 1 }
 
