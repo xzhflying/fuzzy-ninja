@@ -56,6 +56,9 @@ gem 'autoprefixer-rails'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
 
+# Used for nesting layouts
+gem 'nestive', '~> 0.5'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
