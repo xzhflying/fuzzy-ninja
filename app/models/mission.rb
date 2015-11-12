@@ -3,4 +3,5 @@ class Mission < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :missions
   has_many :supervisions, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 end

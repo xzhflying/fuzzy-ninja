@@ -11,18 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105131411) do
+ActiveRecord::Schema.define(version: 20151028125334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "comments", force: :cascade do |t|
-    t.integer  "user_id",    index: {name: "index_comments_on_user_id"}
-    t.integer  "mission_id", index: {name: "index_comments_on_mission_id"}
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -61,6 +53,7 @@ ActiveRecord::Schema.define(version: 20151105131411) do
   create_table "missions", force: :cascade do |t|
     t.integer  "user_id",     null: false, index: {name: "fk__missions_user_id"}, foreign_key: {references: "users", name: "fk_missions_user_id", on_update: :no_action, on_delete: :no_action}
     t.string   "target",      null: false
+    t.text     "description"
     t.datetime "deadline"
     t.integer  "status",      default: 0, null: false
     t.datetime "created_at",  null: false
@@ -75,14 +68,5 @@ ActiveRecord::Schema.define(version: 20151105131411) do
     t.datetime "updated_at",    null: false
   end
   add_index "mission_supervisions", ["mission_id", "supervisor_id"], name: "index_mission_supervisions_on_mission_id_and_supervisor_id", unique: true
-
-  create_table "supervisions", force: :cascade do |t|
-    t.integer  "mission_id",    null: false, index: {name: "fk__supervisions_mission_id"}
-    t.integer  "supervisor_id", null: false, index: {name: "fk__supervisions_supervisor_id"}
-    t.integer  "accepted",      default: 0, null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-  add_index "supervisions", ["mission_id", "supervisor_id"], name: "index_supervisions_on_mission_id_and_supervisor_id", unique: true, where: "(accepted = 1)"
 
 end

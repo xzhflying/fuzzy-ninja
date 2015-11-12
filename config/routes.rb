@@ -64,7 +64,6 @@ Rails.application.routes.draw do
 
   scope module: 'mission' do
     resources :missions do
-
       post 'supervise' => 'supervisions#create', as: :create_supervision
       get 'supervision/:id' => 'supervisions#grant_supervision', as: :grant_supervision
     end
