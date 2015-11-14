@@ -13,6 +13,7 @@
   - @mission.supervisions.granted.each do |s|
     = s.supervisor.name + " "
 
+
 .form-horizontal
   .h3 = '目标 :'
   .alert.alert-success
@@ -32,6 +33,3 @@
     - else
       = '暂无留言'
     = render 'form_conversation'
-
-
-
