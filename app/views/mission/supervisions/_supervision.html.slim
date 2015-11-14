@@ -1,0 +1,13 @@
+= content_tag_for(:tr, supervision) do
+  td
+  td
+    .mission
+      .h4
+        = link_to(supervision.mission.target, mission_supervision_path(supervision.mission, supervision))
+  td
+    .h5
+      = supervision.mission.description
+  td = supervision.mission.deadline
+  td = supervision.mission.user.name
+  td = supervision.mission.created_at
+

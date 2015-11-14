@@ -1,0 +1,36 @@
+= page_header(@mission.target) do
+  = render partial: 'controls'
+
+- if @mission.unfinished?
+  .label.label-default
+    = '未完成'
+- else
+  .label.label-success
+    = '已完成'
+
+- if @mission.supervisions.granted.empty?
+  .label.label-default
+    = '无人监督'
+  - if @mission.supervisions.any?
+    = '有好友愿意监督你完成这项任务'
+    - @mission.supervisions.each do |s|
+      h6
+        = s.supervisor.name
+        span= link_to('接受', mission_grant_supervision_path(@mission, s), class: ['lab btn-info btn-xs'])
+- else
+  .label.label-warning
+    = "监督者："
+    - @mission.supervisions.granted.each do |s|
+      = s.supervisor.name + " "
+
+.form-horizontal
+  .h3 = '目标 :'
+  .alert.alert-success
+    = @mission.target
+  .h3 = '任务描述 :'
+  .alert.alert-info
+    = @mission.description
+  .h3 = '截止日期 :'
+  .alert.alert-danger id="time"
+    = @mission.deadline
+  .h3 = '留言 :'
