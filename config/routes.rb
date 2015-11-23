@@ -64,9 +64,13 @@ Rails.application.routes.draw do
 
   scope module: 'mission' do
     resources :missions do
+      resources :supervisions
+      resources :comments
       post 'supervise' => 'supervisions#create', as: :create_supervision
       get 'supervision/:id' => 'supervisions#grant_supervision', as: :grant_supervision
     end
+
+    get 'supervision/my_supervisions' => 'supervisions#my_supervisions', as: :my_supervisions
 
     get 'mission/mission_board' => 'missions#mission_board', as: :mission_board
     get 'mission/my_missions' => 'missions#my_missions', as: :my_missions

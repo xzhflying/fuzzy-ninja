@@ -1,0 +1,18 @@
+= page_header('我监督的任务：')
+
+table.table.mission-list.table-hover
+  thead
+    tr
+      th
+      th = '目标'
+      th = '任务描述'
+      th = '截止日期'
+      th = '发布者'
+      th = '发布日期'
+  tbody
+    - unless @supervisions.empty?
+      = render partial: @supervisions
+    - else
+      tr
+        td colspan="6" align="center"
+          h3 = "目前没有监督中的任务"
