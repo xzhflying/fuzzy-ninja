@@ -27,7 +27,7 @@
   .alert.alert-warning
     - if @supervision.comments.any?
       - @supervision.comments.each do |comment|
-        = User.find_by_id(comment.user_id)
+        = User.find_by_id(comment.user_id).name + ": "
         span = comment.content
     - else
       = '暂无留言'
