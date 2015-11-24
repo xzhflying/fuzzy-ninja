@@ -1,15 +1,16 @@
-h1 = '注册'
+.login-card
+  .login-header
+    h1 = '注册'
 
-= simple_form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
-  = f.error_notification
+  .login-content
+    = simple_form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+      = f.error_notification
 
-  .form-inputs
-    = f.input :name, required: true, autofocus: true
-    = f.input :email, required: true
-    = f.input :password, required: true, hint: ("最少#{@minimum_password_length}个字符" if @validatable)
-    = f.input :password_confirmation, required: true
+      = f.input :name, required: true, autofocus: true, label: '昵称'
+      = f.input :email, required: true, label: '邮箱'
+      = f.input :password, required: true, label: '密码', hint: ("最少#{@minimum_password_length}个字符" if @validatable)
+      = f.input :password_confirmation, required: true, label: '确认密码'
 
-  .form-actions
-    = f.button :submit, '注册'
-
-= render 'devise/shared/links'
+      = f.button :submit, '注册'
+      .pull-right
+        = render 'devise/shared/links'
