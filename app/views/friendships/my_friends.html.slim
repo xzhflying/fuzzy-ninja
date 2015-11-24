@@ -1,41 +1,58 @@
-h1
-  = "我的好友"
-- unless @friendship.nil?
-  - @friendship.errors.full_messages.each do |msg|
-    = msg
+.narrowed-page
+  h1.page-header
+    = "好友管理"
+    - unless @friendship.nil?
+      - @friendship.errors.full_messages.each do |msg|
+        = msg
+  .segment-content
+    h3.segment-header
+      = "好友申请"
 
-table
-  tr
-    th = '好友id'
-    th = '好友邮箱'
-  - @friendships.each do |friendship|
-    - if friendship.accepted == "granted"
-      tr
-        - @friend = User.find_by_id(friendship.friend_id)
-        td = @friend.id
-        td = @friend.email
-    - if friendship.accepted == "unaccepted"
-      tr
-        - @friend = User.find_by_id(friendship.friend_id)
-        td = @friend.id
-        td = @friend.email
-        td = "尚未通过"
+    - unless @requests.empty?
+      h4
+        = "有新的好友申请"
+        .row
+          br
+        .heads-row
+        - @requests.each do |request|
+          .col-sm-4.well
+            .media
+              .media-left
+                img.media-object.head-pic src='pic.jpg'
+              .media-body
+                - @applicant = User.find_by_id(request.user_id)
+                = @applicant.name
+                br
+                small
+                  = @applicant.email
+                br
+                = link_to '允许', grant_request_path(request.id), class: 'btn btn-primary',
+                  data: { confirm: '确定添加好友？'}
+          .col-sm-2
+    - else
+      = "暂时没有新的好友申请"
+    .row
 
-- unless @requests.empty?
-  h1
-    = "有新的好友申请"
-  table
-    tr
-      th = '好友id'
-      th = '好友邮箱'
-    - @requests.each do |request|
-      tr
-        - @applicant = User.find_by_id(request.user_id)
-        td = @applicant.id
-        td = @applicant.email
-        td = link_to '允许', grant_request_path(request.id),
-          data: { confirm: '确定添加好友？'}
-- else
-  = "no requests"
+    h3.segment-header
+      = "添加好友"
+    = render "friendships/form"
 
-= render "friendships/form"
+
+    h3.segment-header
+      = "我的好友"
+    - unless @friendships.empty?
+      .heads-row
+        - @friendships.each do |friendship|
+          .col-sm-4.well
+            .media
+              .media-left
+                img.media-object.head-pic src='pic.jpg'
+              .media-body
+                - @friend = User.find_by_id(friendship.friend_id)
+                = @friend.name
+                br
+                small
+                  = @friend.email
+          .col-sm-2
+    - else
+      = "暂时没有好友"
