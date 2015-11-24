@@ -1,4 +1,7 @@
 = simple_form_for :friend_info, url: friendships_path do |f|
-  = f.label "添加好友"
-  = f.input :email, label: "邮箱地址"
-  = f.submit "发送申请"
+  .row
+    .col-sm-6
+      .input-group
+        = f.input :email, label: false, placeholder: '好友邮箱'
+        span.input-group-btn
+          = f.button :submit, value: '添加'
