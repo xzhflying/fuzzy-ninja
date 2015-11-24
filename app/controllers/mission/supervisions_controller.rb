@@ -3,7 +3,7 @@ class Mission::SupervisionsController < Mission::Controller
                                             except: [:create, :my_supervisions]
 
   def create
-    @supervision = @mission.supervisions.build(supervisor: current_user)
+    @supervision = current_user.supervisions.build(supervisor: current_user)
 
     if @supervision.save
       redirect_to mission_path(@mission), success: '成功发送申请'

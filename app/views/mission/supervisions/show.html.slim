@@ -30,6 +30,7 @@
       - @supervision.comments.each do |comment|
         = User.find_by_id(comment.user_id).name + ": "
         span = comment.content
+        br
     - else
       = '暂无留言'
     = render 'form_conversation'
