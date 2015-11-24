@@ -66,7 +66,6 @@ Rails.application.routes.draw do
     resources :missions do
       resources :supervisions
       resources :comments
-
       post 'supervise' => 'supervisions#create', as: :create_supervision
       get 'supervision/:id' => 'supervisions#grant_supervision', as: :grant_supervision
     end
