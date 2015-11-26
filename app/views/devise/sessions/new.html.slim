@@ -1,0 +1,17 @@
+.login-card
+  .login-header
+    h1 = '登录'
+
+  .login-content
+    = simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+      = f.error_notification
+
+      .form-inputs
+        = f.input :email, required: true, autofocus: true, label: '邮箱'
+        = f.input :password, required: true, label: '密码', hint: ("最少#{@minimum_password_length}个字符" if @validatable)
+        = f.input :remember_me, label: '记住我', as: :boolean if devise_mapping.rememberable?
+
+      .form-actions
+        = f.button :submit, '登录'
+        .pull-right
+          = render 'devise/shared/links'
