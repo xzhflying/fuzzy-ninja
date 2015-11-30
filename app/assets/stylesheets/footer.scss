@@ -1,0 +1,103 @@
+$footer-bg: #202020;
+$website-info-bg: #111;
+$border-lightgray: #303030;
+$orange: #ed431f;
+$content-lightgray: #959595;
+$website-info-content: #555;
+
+.footer {
+  position: relative;
+  bottom: 0;
+  background: $footer-bg;
+  padding: 35px 0 0;
+  width: 100%;
+  color: $content-lightgray;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.widget {
+  margin-bottom: 35px;
+  padding: 0 30px;
+}
+
+.footer .widget .title {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 21px;
+  border-bottom: 1px solid $border-lightgray;
+  padding-bottom: 7px;
+  color: #ffffff;
+}
+
+.widget .title:after {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  background: $orange;
+  width: 90px;
+  height: 1px;
+  content: "";
+}
+
+.widget .friend-links a {
+  display: block;
+  margin-bottom: 14px;
+  border-bottom: 1px dashed $border-lightgray;
+  padding-bottom: 14px;
+  color: $content-lightgray;
+  transition: all 0.2s;
+}
+
+.widget .friend-links a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.widget .about-us a {
+  display: inline-block;
+  margin: 0 7px 7px 0;
+  border: 1px solid $border-lightgray;
+  padding: 2px 7px;
+  line-height: 1.5em;
+  color: $content-lightgray;
+  transition: all 0.2s;
+}
+
+.widget .about-us a:hover {
+  border: 1px solid $orange;
+  background-color: $orange;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.widget .to-be-developed a {
+  display: block;
+  margin-bottom: 14px;
+  border-bottom: 1px dashed $border-lightgray;
+  padding-bottom: 14px;
+  color: $content-lightgray;
+  transition: all 0.2s;
+}
+
+.widget .to-be-developed a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.website-info {
+  border-top: 1px solid $border-lightgray;
+  background: $website-info-bg;
+  padding-top: 14px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: $website-info-content;
+  font-size: 13px;
+}
+
+.website-info span {
+  margin: 0 0.5em;
+}
