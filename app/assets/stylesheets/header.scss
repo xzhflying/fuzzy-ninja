@@ -1,14 +1,14 @@
 $lightgray-top: #fafafa;
 $lightgray-bottom: #eaeaea;
-$hover-blue: #5dc9c9;
+$hover-orange: #f05f40;
 $border-bottom: #dcdcdc;
 $header-box-shadow: #cecdcd;
-$header-word: #686c6d;
+$header-word: #222;
 
 .header {
   background-image: linear-gradient(to bottom, $lightgray-top, $lightgray-bottom);
   border-bottom: 2px solid $border-bottom;
-  border-radius: 0 0 35px 35px;
+  border-radius: 0 0 30px 30px;
   box-shadow: 0 1px 1px $header-box-shadow inset;
   left: 0;
   position: fixed;
@@ -38,16 +38,13 @@ $header-word: #686c6d;
       margin: 0.5em 2em 0;
       .mya {
         font-size: 15px;
-        line-height: 40px;
+        line-height: 30px;
         -moz-transition: 0.5s all;
         -o-transition: 0.5s all;
         -webkit-transition: 0.5s all;
         transition: 0.5s all;
         :hover {
-          color: $hover-blue;
-          text-decoration: none;
-          padding: 1.4em 0 0;
-          border-top: 3px solid $hover-blue;
+          color: $hover-orange;
         }
       }
       a {
@@ -68,7 +65,7 @@ $header-word: #686c6d;
 }
 
 .top-nav p a:hover {
-  color: $hover-blue;
+  color: $hover-orange;
   text-decoration: none;
 }
 
