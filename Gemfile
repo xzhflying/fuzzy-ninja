@@ -51,6 +51,8 @@ gem 'jquery-cdn'
 gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'autoprefixer-rails'
+# Some helpers for structuring CSS/JavaScript
+gem 'rails_utils', '>= 3.3.3'
 
 # bootstrap3-datetimepicker-rails
 gem 'momentjs-rails', '>= 2.9.0'
