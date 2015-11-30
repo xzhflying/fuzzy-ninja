@@ -58,6 +58,8 @@ gem 'rails_utils', '>= 3.3.3'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
 
+# Font awesome
+gem 'font-awesome-sass', '~> 4.4.0'
 # Used for nesting layouts
 gem 'nestive', '~> 0.5'
 
