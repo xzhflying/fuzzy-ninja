@@ -9,7 +9,7 @@ $website-info-content: #555;
   position: relative;
   bottom: 0;
   background: $footer-bg;
-  padding: 35px 0 0;
+  padding: 15px 0 0;
   width: 100%;
   color: $content-lightgray;
 }
@@ -20,7 +20,7 @@ $website-info-content: #555;
 }
 
 .widget {
-  margin-bottom: 35px;
+  margin-bottom: 0;
   padding: 0 30px;
 }
 
@@ -91,11 +91,11 @@ $website-info-content: #555;
 .website-info {
   border-top: 1px solid $border-lightgray;
   background: $website-info-bg;
-  padding-top: 14px;
-  padding-bottom: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   text-align: center;
   color: $website-info-content;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .website-info span {
