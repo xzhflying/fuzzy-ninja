@@ -10,84 +10,85 @@ html
     = csrf_meta_tags
 
   body
-    .wrapper
-      div.header
-        div.header-part
-          div.head-logo
-            a
-              = link_to(image_tag('logo.png', size: '230x40'), root_path)
-          div.top-nav
-            .myul
-              - if user_signed_in?
-                .myli
-                  .mya.scroll
-                    =link_to("主页", root_path)
-                .myli
-                  .mya.scroll
-                    =link_to("To Do List", my_missions_path)
-                .myli
-                  .mya.scroll
-                    =link_to("Blog", "#blog")
-                .myli
-                  a.dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
-                    => current_user.name
-                    span.caret
-                    ul.dropdown-menu.dropdown-menu-right
-                      li = link_to("我的好友", my_friends_path)
-                      li = link_to('退出登录', destroy_user_session_path, method: :delete)
-              - else
-                .myli
-                  .mya.scroll
-                    = link_to('注册', new_user_registration_path)
-                .myli
-                  .mya.scroll
-                    = link_to('登录', new_user_session_path)
-        div.clearfix
 
+    nav.navbar.navbar-default.navbar-fixed-top id = "mainNav"
       div.container-fluid
-        div.page
-          = yield
+        div.navbar-header
+          button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            span.sr-only
+              = "Toggle navigation"
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand.page-scroll href="#page-top"
+            = "Fuzzy Ninja"
 
-      div.footer
-        div.container
-          div.row
-            div.col-sm-4
-              div.widget
-                h4.title
-                  |  友情链接
-                div.content.friend-links
-                  a[href="#"]
-                    | Link One
-                  a[href="#"]
-                    | Link Two
-            div.col-sm-4
-              div.widget
-                h4.title
-                  |  关于我们
-                div.content.about-us
-                  a[href="#"]
-                    | ONE
-                  a[href="#"]
-                    | TWO
-                  a[href="#"]
-                    | THREE
-                  a[href="#"]
-                    | FOUR
-                  a[href="#"]
-                    | FIVE
-                  a[href="#"]
-                    | SIX
-            div.col-sm-4
-              div.widget
-                h4.title
-                  |  此条待定
-                div.content.to-be-developed
-                  a[href="#"]
-                    | To Be Developed
-        div.website-info
-          span
-            |  A Personal Website
-          span
-            |  |
-          span
-            |  Just For Fun
+        div.collapse.navbar-collapse id="bs-example-navbar-collapse-1"
+          ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              li
+                a.page-scroll href=root_path
+                  = "主页"
+              li
+                a.page-scroll href=my_missions_path
+                  = "To Do List"
+              li
+                a.page-scroll href="#blog"
+                  = "Blog"
+              li
+                a.dropdown-toggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+                  => current_user.name
+                  span.caret
+                  ul.dropdown-menu.dropdown-menu-right
+                    li = link_to("我的好友", my_friends_path)
+                    li = link_to('退出登录', destroy_user_session_path, method: :delete)
+            - else
+              li
+                a.page-scroll href=new_user_registration_path
+                  = "注册"
+              li
+                a.page-scroll href=new_user_session_path
+                  = "登录"
+
+    header
+
+    div.mypage
+      = yield
+
+    div.footer
+      div.container
+        div.row
+          div.col-sm-4
+            div.widget
+              h4.title
+                |  友情链接
+              div.content.friend-links
+                a[href="#"]
+                  | Link
+          div.col-sm-4
+            div.widget
+              h4.title
+                |  关于我们
+              div.content.about-us
+                a[href="#"]
+                  | ONE
+                a[href="#"]
+                  | TWO
+                a[href="#"]
+                  | THREE
+                a[href="#"]
+                  | FOUR
+          div.col-sm-4
+            div.widget
+              h4.title
+                |  此条待定
+              div.content.to-be-developed
+                a[href="#"]
+                  | To Be Developed
+      div.website-info
+        span
+          |  A Personal Website
+        span
+          |  |
+        span
+          |  Just For Fun

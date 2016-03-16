@@ -1,21 +1,19 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'bootstrap-datetimepicker';
-@import "header";
+@import "creative";
+@import "animate.min";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "sidebar";
 @import "footer";
 
-body {
-  margin: 0;
-  padding-top: 60px;
-  height: 100%;
+header {
+  min-height: 50px;
+  background-image: none;
+  background-color: $orange;
 }
 
-.wrapper {
-  min-height:100%;
-  position:relative;
-}
-
-.container-fluid {
-  padding-bottom: 500px;
+.mypage {
+  min-height: 90%;
 }

@@ -18,3 +18,7 @@
 //= require bootstrap-datetimepicker
 //= require simple_form-bootstrap
 //= require_tree "./js"
+//= require jquery.easing.min
+//= require jquery.fittext
+//= require wow.min
+//= require creative
