@@ -1,0 +1,14 @@
+h1 = '登陆'
+
+= simple_form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email, required: false, autofocus: true
+    = f.input :password, required: false
+    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+
+  .form-actions
+    = f.button :submit, '登陆'
+
+= render 'devise/shared/links'
