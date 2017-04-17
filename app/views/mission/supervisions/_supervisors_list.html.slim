@@ -1,0 +1,9 @@
+.sidebar-nav-fixed.pull-right.affix
+  .well
+    ul.nav
+      li.nav-header = '监督者'
+      - @supervision.mission.supervisors.each do |supervisor|
+        li.active
+          a href="#"
+            = supervisor.name
+

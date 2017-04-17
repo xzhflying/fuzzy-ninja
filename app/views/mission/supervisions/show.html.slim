@@ -1,37 +1,37 @@
-= page_header(@mission.target) do
-  = render 'controls'
+.col-sm-9
+  = page_header(@mission.target) do
+    = render 'controls'
+  - if @mission.unfinished?
+    .label.label-default
+      = '未完成'
+  - else
+    .label.label-success
+      = '已完成'
 
-- if @mission.unfinished?
-  .label.label-default
-    = '未完成'
-- else
-  .label.label-success
-    = '已完成'
+  .label.label-warning
+    = "监督者："
+    - @mission.supervisions.granted.each do |s|
+      = s.supervisor.name + " "
 
-.label.label-warning
-  = "监督者："
-  - @mission.supervisions.granted.each do |s|
-    = s.supervisor.name + " "
-
-.form-horizontal
-  .h3 = '目标 :'
-  .alert.alert-success
-    = @mission.target
-  .h3 = '任务描述 :'
-  .alert.alert-info
-    = @mission.description
-  .h3 = '截止日期 :'
-  .alert.alert-danger id="time"
-    = @mission.deadline
-  .h3 = '留言 :'
-  .alert.alert-warning
-    - if @supervision.comments.any?
-      - @supervision.comments.each do |comment|
-        = User.find_by_id(comment.user_id).name + ": "
-        span = comment.content
-    - else
-      = '暂无留言'
-    = render 'form_conversation'
-
-
-
+  .form-horizontal
+    .h3 = '目标 :'
+    .alert.alert-success
+      = @mission.target
+    .h3 = '任务描述 :'
+    .alert.alert-info
+      = @mission.description
+    .h3 = '截止日期 :'
+    .alert.alert-danger id="time"
+      = @mission.deadline
+    .h3 = '留言 :'
+    .alert.alert-warning
+      - if @supervision.comments.any?
+        - @supervision.comments.order(created_at: :asc).each do |comment|
+          = User.find_by_id(comment.user_id).name + ": "
+          span = comment.content
+          br
+      - else
+        = '暂无留言'
+      = render 'form_comments'
+.col-sm-3
+  = render 'supervisors_list'

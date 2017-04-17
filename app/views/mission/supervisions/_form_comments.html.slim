@@ -1,0 +1,4 @@
+= simple_form_for :comment, url: mission_comments_path do |f|
+    = f.input :content, placeholder: '请输入内容', label: false
+    = f.hidden_field :commentable_type, value: Mission::Supervision
+    = f.submit "留言"
